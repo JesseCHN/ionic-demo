@@ -1,0 +1,12 @@
+page-more {
+  .card {
+    margin: 0;
+    width: 100%;
+    /*动态计算宽度*/
+    /*width: calc(100% - 1px);*/
+  }
+
+  .marginTop{
+    margin-top: 10px;
+  }
+}

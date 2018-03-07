@@ -1,17 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="搜索:如何高效的学习ionic开发"></ion-searchbar>
+    <ion-icon name="text" class="top_header_message_icon" (tap)="gotoChat()"></ion-icon>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div class="floatMenu">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 text-center>
+          <div (tap)="gotoQuestion()">
+            <ion-icon name="create">提问</ion-icon>
+          </div>
+
+        </ion-col>
+        <ion-col col-4 text-center>
+          <div><span class="separatedLine">|</span>
+            <ion-icon name="albums">回答</ion-icon>
+          </div>
+
+        </ion-col>
+        <ion-col col-4 text-center>
+          <div (click)="gotoQuestion()"><span class="separatedLine">|</span>
+            <ion-icon name="share-alt">分享</ion-icon>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-card *ngFor="let f of feeds" (click)="gotoDetails(f.IdentityId)">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{f.HeadFace}}">
+      </ion-avatar>
+      <p>{{f.UserNickName}}回答了该问题
+        <ion-icon class="more_button" name="more"></ion-icon>
+      </p>
+    </ion-item>
+    <h2>{{f.ContentTitle}}</h2>
+    <ion-card-content>
+      <p>{{f.ContentSummary}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col col-8 center text-left>
+        <ion-note>
+          {{f.LikeCount}}&nbsp;赞同&nbsp;&nbsp;·&nbsp;&nbsp;{{f.CommentCount}}&nbsp;评论&nbsp;&nbsp;·&nbsp;&nbsp;关注问题
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

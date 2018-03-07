@@ -1,6 +1,14 @@
 // http://ionicframework.com/docs/theming/
 
+.transparent-body {
+  background: none transparent !important;
+  opacity: 0 !important;
+}
 
+.show-body{
+  background-color: #f8f8f8 !important;
+  opacity: 1 !important;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
